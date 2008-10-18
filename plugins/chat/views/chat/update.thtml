@@ -1,0 +1,12 @@
+<?php
+	//flip the order
+	//$messages = array_reverse($messages);
+	if (isset($messages) && !empty($messages)) {
+		foreach($messages as $i => $message) {
+			$class = ($i % 2 == 0) ? 'odd':'even';
+			printf('<p class="%s"><strong>%s (%s):</strong> %s</p>', $class, $message['Chat']['handle'], $message['Chat']['created'], $message['Chat']['text']);
+		}
+	} else {
+		echo '<p>No Messages</p>';
+	}
+?>
