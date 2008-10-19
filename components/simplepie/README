@@ -32,6 +32,6 @@
         echo $html->link($item->get_title(), $item->get_permalink()) . '<br />';
       }
 
-Tips
+/* Tips */
     * This component automatically creates a directory tmp/cache/rss to store the cached feeds.
     * SimplePie has great docs. There is a ton of additional functionality that this component doesn't touch.
