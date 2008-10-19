@@ -1,0 +1,37 @@
+/*
+ * SimplePie CakePHP Component
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/components/simplepie
+ * http://sandbox2.pseudocoder.com/demo/simplepie
+ *
+ * Based on the work of Scott Sansoni (http://cakeforge.org/snippet/detail.php?type=snippet&id=53)
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* Notes */
+    * SimplePHP is a PHP class for retrieval and parsing of RSS feeds. This is a wrapper to that class making it easy to use in the CakePHP framwork.
+    * Much of this component is taken from the work of Scott Sansoni (http://cakeforge.org/snippet/detail.php?type=snippet&id=53). This is mostly an update so the component works with the lastest version of SimplePie
+
+/* Instructions */
+   1. You'll need a working version of CakePHP installed. This is running on 1.2.0.7692 RC3.
+   2. Download SimplePie 1.0.1 and unzip the contents. Move the simplepie.inc to one of the vendors folders. Rename the file to simplepie.php. I like to put the file in the sub folder with the README.txt and LICENSE.txt for easy reference.
+   3. Download the component and unzip it to app/controllers/components.
+   4. Include the component in any controller that will need it:
+      var $components = array('Simplepie');
+
+   5. In your controller you can load a feed using:
+      $items = $this->Simplepie->feed('http://feeds.feedburner.com/pseudocoder');
+      $this->set('items', $items);
+
+   6. Then to show the items in your view (you probably want to format it better than this):
+      foreach($items as $item) {
+        echo $html->link($item->get_title(), $item->get_permalink()) . '<br />';
+      }
+
+Tips
+    * This component automatically creates a directory tmp/cache/rss to store the cached feeds.
+    * SimplePie has great docs. There is a ton of additional functionality that this component doesn't touch.
