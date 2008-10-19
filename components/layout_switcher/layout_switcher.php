@@ -1,11 +1,11 @@
 <?php
 /*
  * Layout Switcher CakePHP Component
- * Copyright (c) 2007 Matt Curry
+ * Copyright (c) 2008 Matt Curry
  * www.PseudoCoder.com
+ * 
  *
- * @author      mattc <matt@pseudocoder.com>
- * @version     1.0
+ * @author      Matt Curry <matt@pseudocoder.com>
  * @license     MIT
  *
  */
@@ -15,8 +15,6 @@ class LayoutSwitcherComponent extends Object {
   var $components = array('RequestHandler');
 
   function startup(&$controller) {
-    uses('Folder');
-
     $this->controller = $controller;
 
     //get the domain used
@@ -30,8 +28,9 @@ class LayoutSwitcherComponent extends Object {
     $files = $folder->find($domain . '.(thtml|ctp)');
 
     //should only be one match
+    //otherwise use default layout
     if (count($files) != 1) {
-      return;
+      $domain = Configure::read('defaultLayout');
     }
 
     //set the layout
