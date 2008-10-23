@@ -1,0 +1,23 @@
+div.chat {
+	margin: 15px 0;
+}
+  div.chat label {
+    vertical-align: top;
+  }
+  div.chat div.chat_window {
+    border: 1px solid #ccc;
+    height: 100px;
+    overflow: auto;
+    margin: 0 0 15px 0;
+    background: #fff;
+  }
+  div.chat div.chat_window p {
+    padding: 1px 2px;
+    margin: 0;
+  }
+  div.chat div.chat_window p.even {
+    background: #eee;
+  }
+  div.chat div.chat_window p.new {
+    background: #FFCCCC;
+  }
