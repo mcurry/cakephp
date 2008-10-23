@@ -3,29 +3,19 @@
 class ChatController extends ChatAppController {
 	var $name = 'Chat';
 	var $components = array('RequestHandler');
-
-	function init($key) {
-		//clear out old messages
-		$this->Chat->purge(strtotime('-1 day'));
-
-		//get the latest 10 messages
-		$this->set('messages', $this->Chat->findAll(array('Chat.key' => $key), null, array('Chat.created' => 'DESC'), 10));
-
-		$this->render('update');
-	}
-
+  var $helpers = array('Time');
+  
 	function update($key) {
-		//get the latest 10 messages
-		$this->set('messages', $this->Chat->findAll(array('Chat.key' => $key), null, array('Chat.created' => 'DESC'), 10));
+		$this->set('messages', $this->Chat->find('latest', $key));
 	}
 
 	function post() {
-		$this->params['data']['Chat']['ip_address'] = $_SERVER['REMOTE_ADDR'];
-		$this->params['data']['Chat']['text'] = strip_tags($this->params['data']['Chat']['text']);
-		$this->Chat->save($this->params['data']);
+    App::import('Sanitize');
+		$this->data = Sanitize::clean($this->data);
+    $this->data['Chat']['ip_address'] = $_SERVER['REMOTE_ADDR'];
+		$this->Chat->save($this->data);
+    die;
 	}
-
-
 }
 
 ?>
