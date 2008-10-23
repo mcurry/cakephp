@@ -1,17 +1,17 @@
 <?php
 /*
- * CakePHP Ajax Chat
- * Copyright (c) 2007 Matt Curry
- * www.siteamonth.com
+ * CakePHP Ajax Chat Plugin (using jQuery);
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/plugins/chat
+ * http://sandbox2.pseudocoder.com/demo/chat
  *
- * @author      mattc <matt@siteamonth.com>
- * @version     1.0
+ * @author      Matt Curry <matt@pseudocoder.com>
  * @license     MIT
  *
  */
 
-	class ChatAppController extends AppController {
+class ChatAppController extends AppController {
 
-	}
-
+}
 ?>
