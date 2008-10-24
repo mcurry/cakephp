@@ -1,0 +1,32 @@
+/*
+ * Static methods that can be used to retrieve the logged in user
+ * from anywhere
+ *
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/snippets/static_user
+ * http://www.pseudocoder.com/archives/2008/10/06/accessing-user-sessions-from-models-or-anywhere-in-cakephp-revealed/
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* Description */
+A snippet of code that can be dropped into your User model, which will allow you to access the
+logged in user from anywhere in a CakePHP app.
+
+/* Notes */
+This code assumes you are using the core Auth component.
+
+/* Instructions */
+1) Paste the code into your User model.
+
+2) In your AppController::beforeFilter add:
+App::import('Model', 'User');
+User::store($this->Auth->user());
+
+/* Usage */
+User::get('id');
+User::get('username');
+User::get('Model.fieldname');
