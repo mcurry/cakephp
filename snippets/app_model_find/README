@@ -3,7 +3,7 @@
  * Copyright (c) 2008 Matt Curry
  * www.PseudoCoder.com
  * http://github.com/mcurry/cakephp/tree/master/snippets/app_model_find
- * http://www.pseudocoder.com/archives/2008/10/24/cakephp-custom-find-queriescakephp-custom-find-queries/
+ * http://www.pseudocoder.com/archives/2008/10/24/cakephp-custom-find-queriescakephp-custom-find-types/
  *
  * @author      Matt Curry <matt@pseudocoder.com>
  * @license     MIT
@@ -21,5 +21,5 @@ $this->Model->find('custom');
 
 3) In your model:
 function __findCustom($options) {
-//do find here
+  //do find here
 }
