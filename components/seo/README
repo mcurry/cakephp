@@ -1,0 +1,41 @@
+/*
+ * SEO CakePHP Component
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/components/seo
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* About */
+The intent of this component is to automatically set relevent page titles and meta descriptions
+based on the content being sent to the view.  It also assists in make pretty urls.
+
+/* Notes */
+  * This component is in a very early state.  It probably won't work automatically in your application.
+  * Patches for supporting a larger application base are appreciated.
+
+/* Instructions */
+  1. Include the component in your app controller:
+    var $components = array('Seo');
+  
+  2. The component will automatically try to pull relevant information for the title/meta description from:
+    a. $Controller->data
+    b. $Controller->viewVars
+    
+  3. In your view the meta description is assigned to $meta_description_for_layout.
+  
+  4. The page title will be $title_for_layout (CakePHP standard);
+  
+  5. There is also a 2nd class "Seo" which has a static function for creating pretty urls.
+     Say you were making a link to view a blog post and you wanted the link to be
+     "/post/view/12/this-is-the-blog-post-title" you would create the link:
+     $html->link($post['Post']['name'], array('action' => 'view', seo::uri($post['Post'])));
+     The url function will automatically pull the id and title from $post and create the link.
+  
+  6. In your controller you can leave the view function as is "function view($id) { ... }".
+     CakePHP will automatically populate the $id and ignore the extra title param.
+     
+
