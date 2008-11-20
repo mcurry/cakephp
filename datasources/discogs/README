@@ -1,0 +1,22 @@
+/*
+ * Discogs Datasource for CakePHP
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/datasources/discogs
+ *
+ * @author      mattc <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+ 
+/* About */
+This is a datasource for accessing the discogs.com API.
+For more information and to get an API key go to http://www.discogs.com/help/api
+
+/* Instructions */
+  * Sign up for an API key at the discogs site.
+  * Configure the datasource in your /app/config/database.php file:
+    var $music = array(
+      'datasource' => 'discogs',
+      'apiKey' => 'APIKEYHERE'
+    );
