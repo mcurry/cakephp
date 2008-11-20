@@ -13,6 +13,12 @@
 This is a datasource for accessing the discogs.com API.
 For more information and to get an API key go to http://www.discogs.com/help/api
 
+/* Notes */
+  * The datasource is a bit geared toward my particular application and will likely
+  need some changes to generalize some of the methods.
+  * I ended up dropping Discogs as a datasource, because I found the data somewhat
+  unreliable.  Just a warning.
+  
 /* Instructions */
   * Sign up for an API key at the discogs site.
   * Configure the datasource in your /app/config/database.php file:
