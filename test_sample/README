@@ -11,5 +11,5 @@
 
 /* Description */
 A short template for doing CakePHP model unit test.  The differences from the baked test files:
-  - The fixture use var import to get the schema from the original table.
-  - The model test doesn't need a fake model.  It uses ClassRegistry::init to load the original model, but sets it to use the test db.
+  - The fixture uses "var import" to get the schema from the original table.
+  - The model test doesn't need a mock model.  It uses ClassRegistry::init to load the original model, but sets it to use the test db.
