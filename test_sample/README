@@ -1,0 +1,15 @@
+/*
+ * CakePHP Model Unit Test Template
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/test_sample
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* Description */
+A short template for doing CakePHP model unit test.  The differences from the baked test files:
+  - The fixture use var import to get the schema from the original table.
+  - The model test doesn't need a fake model.  It uses ClassRegistry::init to load the original model, but sets it to use the test db.
