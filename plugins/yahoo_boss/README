@@ -1,0 +1,28 @@
+/*
+ * CakePHP Yahoo! Search BOSS Plugin
+ *
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/plugins/yahoo_boss
+ * http://sandbox2.pseudocoder.com/yahoo_boss/search
+ * based on the work of Neil Crookes
+ * http://www.neilcrookes.com/2009/01/30/cakephp-site-search-with-yahoo-boss/
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* Description */
+A plugin for adding site search powerd by Yahoo!'s BOSS
+
+/* Instructions */
+   1. Download the plugin and put it in /app/plugins/yahoo_boss.
+   2. Get an API key from yahoo (http://developer.yahoo.com/wsregapp/).
+   3. Rename /app/yahoo_boss/config/yahoo_boss.php.default to /app/yahoo_boss/config/yahoo_boss.php
+   4. Update /app/yahoo_boss/config/yahoo_boss.php with site and api key
+   5. Access the search from http://yourapp/yahoo_boss/search
+   6. Optionally add a route if you prefer to use a different URL.
+      For example: Router::connect('/search/:term/*', array('controller' => 'search', 'action' => 'results'));
+
+
