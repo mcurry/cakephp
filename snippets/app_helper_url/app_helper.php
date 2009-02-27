@@ -1,0 +1,53 @@
+<?php
+/*
+ * App Helper url caching
+ * Copyright (c) 2009 Matt Curry
+ * www.PseudoCoder.com
+ * http://github.com/mcurry/cakephp/tree/master/snippets/app_helper_url
+ * http://www.pseudocoder.com/archives/2009/02/27/how-to-save-half-a-second-on-every-cakephp-requestand-maintain-reverse-routing
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+class AppHelper extends Helper {
+  var $_cache = array();
+  var $_key = '';
+  
+  function __construct() {
+    parent::__construct();   
+    
+    if(Configure::read('UrlCache.pageFiles')) {
+      $view =& ClassRegistry::getObject('view');
+      $path = $view->here;
+      if ($this->here == '/') {
+        $path = 'home';
+      }
+      $this->_key = '_' . strtolower(Inflector::slug($path));
+    }
+
+    $this->_key = 'url_map' . $this->_key;
+    $this->_cache = Cache::read($this->_key, '_cake_core_');  
+  }
+
+  function afterLayout() { 
+    if(is_a($this, 'HtmlHelper')) {
+      Cache::write($this->_key, $this->_cache, '_cake_core_');
+    }
+  }
+  
+  function url($url = null, $full = false) {
+    $key = md5(serialize($url));
+    
+    if (!empty($this->_cache[$key])) {
+      return $this->_cache[$key];
+    }
+ 
+    $url = parent::url($url, $full);
+    $this->_cache[$key] = $url;
+    
+    return $url;
+  }
+}
+?>
