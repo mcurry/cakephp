@@ -14,11 +14,13 @@
 class AppHelper extends Helper {
   var $_cache = array();
   var $_key = '';
-  
+  var $_extras = array();
+  var $_paramFields = array('controller', 'plugin', 'action', 'prefix');
+
   function __construct() {
-    parent::__construct();   
-    
-    if(Configure::read('UrlCache.pageFiles')) {
+    parent::__construct();
+
+    if (Configure::read('UrlCache.pageFiles')) {
       $view =& ClassRegistry::getObject('view');
       $path = $view->here;
       if ($this->here == '/') {
@@ -28,25 +30,34 @@ class AppHelper extends Helper {
     }
 
     $this->_key = 'url_map' . $this->_key;
-    $this->_cache = Cache::read($this->_key, '_cake_core_');  
+    $this->_cache = Cache::read($this->_key, '_cake_core_');
   }
 
-  function afterLayout() { 
-    if(is_a($this, 'HtmlHelper')) {
+  function beforeRender() {
+    $this->_extras = array_intersect_key($this->params, array_combine($this->_paramFields, $this->_paramFields));
+  }
+
+  function afterLayout() {
+    if (is_a($this, 'HtmlHelper')) {
       Cache::write($this->_key, $this->_cache, '_cake_core_');
     }
   }
-  
+
   function url($url = null, $full = false) {
-    $key = md5(serialize($url));
-    
+    $keyUrl = $url;
+    if (is_array($keyUrl)) {
+      $keyUrl += $this->_extras;
+    }
+
+    $key = md5(serialize($keyUrl));
+
     if (!empty($this->_cache[$key])) {
       return $this->_cache[$key];
     }
- 
+
     $url = parent::url($url, $full);
     $this->_cache[$key] = $url;
-    
+
     return $url;
   }
 }
