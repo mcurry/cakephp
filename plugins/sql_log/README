@@ -1,0 +1,21 @@
+/*
+ * SQL Log to file plugin
+ *
+ * Copyright (c) 2008 Matt Curry
+ * www.PseudoCoder.com
+ *
+ * 90% of this code is taken from the DebugKit
+ * http://thechaw.com/debug_kit
+ *
+ * @author      Matt Curry <matt@pseudocoder.com>
+ * @license     MIT
+ *
+ */
+
+/* Description */
+A plugin to write the SQL logs to the error file.
+
+/* Instructions */
+   1. Download the plugin and put it in /app/plugins/sql_log.
+   2. Add the plugin to your AppController:
+      var $components = array('SqlLog.SqlLog');
