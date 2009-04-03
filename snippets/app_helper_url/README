@@ -14,7 +14,7 @@
 Whenever you use $html->link() in your CakePHP views the Cake Router has to scan through all your routes until it finds a match.
 This can be slow if you have a lot of links on a page or use a lot of custom routes.  By adding this code to your AppHelper the urls
 are cached, speeding up requests.  The cache settings follow the same rules as the other Cake core cache settings.
-If debug is set to 0 the cache expires in 10 seconds.  With debug at 0 the cache is good for 999 days.
+If debug is set to greater than 0 the cache expires in 10 seconds.  With debug at 0 the cache is good for 999 days.
 
 /* Instructions */
 1) Drop the code in /app/app_helper.php
