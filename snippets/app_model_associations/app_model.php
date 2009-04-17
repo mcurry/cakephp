@@ -16,7 +16,7 @@ class AppModel extends Model {
   function __construct($id = false, $table = null, $ds = null) {
     if (!in_array(get_class($this), $this->__loadAssociations)) {
       foreach($this->__associations as $association) {
-        foreach($this-> {$association} as $key => $value) {
+        foreach($this->{$association} as $key => $value) {
           $assocName = $key;
 
           if (is_numeric($key)) {
@@ -31,20 +31,28 @@ class AppModel extends Model {
           }
         }
 
-        $this-> {$association} = array();
+        $this->{$association} = array();
       }
     }
 
     parent::__construct($id, $table, $ds);
   }
 
+  function __isset($name) {
+    return $this->__connect($name); 
+  }
+  
   function __get($name) {
+    return $this->__connect($name); 
+  }
+    
+  function __connect($name) {
     if (empty($this->__definedAssociations[$name])) {
       return false;
     }
 
     $this->bind($name, $this->__definedAssociations[$name]);
-    return $this-> {$name};
+    return $this->{$name};
   }
 }
 ?>
