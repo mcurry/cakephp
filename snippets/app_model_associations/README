@@ -1,7 +1,7 @@
 /*
  * App Model
  * Copyright (c) 2008 Matt Curry
- * www.PseudoCoder.com
+ * http://www.pseudocoder.com/archives/2009/04/17/on-the-fly-model-chains-with-cakephp/
  *
  * @author      Matt Curry <matt@pseudocoder.com>
  * @license     MIT
@@ -9,14 +9,9 @@
  */
 
 /* Description */
-Don't use this code.  It's just something I'm messing around with right now.
+The code is very beta.  Please give it a shot and let me know where you hit snags.  
+I've tested it in basic app using Containable and it works great.  
+It probably doesn't work with $recursive.
 
 /* Instructions */
-1) Seriously, don't use it.
-
-2) Drop the snippet in /app/app_model.php
-
-3) For Containable to work add:
-   $Model->{$name};
-   on line 338 of /cake/libs/model/behaviors/containable.php right before
-   if (!isset($Model->{$name}) || !is_object($Model->{$name})) {
+1) Drop the snippet in /app/app_model.php
