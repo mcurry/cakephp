@@ -1,17 +1,2 @@
-/*
- * App Model
- * Copyright (c) 2008 Matt Curry
- * http://www.pseudocoder.com/archives/2009/04/17/on-the-fly-model-chains-with-cakephp/
- *
- * @author      Matt Curry <matt@pseudocoder.com>
- * @license     MIT
- *
- */
-
-/* Description */
-The code is very beta.  Please give it a shot and let me know where you hit snags.  
-I've tested it in basic app using Containable and it works great.  
-It probably doesn't work with $recursive.
-
-/* Instructions */
-1) Drop the snippet in /app/app_model.php
+This code has been moved to it's own repository:
+http://github.com/mcurry/cakephp_app_model_associations/tree/master
